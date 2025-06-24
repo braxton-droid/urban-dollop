@@ -1,0 +1,18 @@
+
+body {
+       font-family: 'Inter', sans-serif;
+       background-color: #f0f2f5; /* Light gray background */
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       min-height: 100vh; /* Ensure it takes full viewport height */
+       margin: 0;
+       padding: 20px; /* Add some padding around the content */
+       box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+        /* Custom styling for card icons if needed, though usually handled by JS libraries */
+.card-icons img {
+   height: 24px;
+   margin-right: 8px;
+   opacity: 0.7;
+}

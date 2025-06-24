@@ -1,0 +1,301 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* Using the optional Google Font */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+/* Main Header */
+.main-header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Makes the header stick to the top */
+    top: 0;
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Puts brand on left, nav items on right */
+    align-items: center;
+    padding: 1rem 1.5rem;
+    max-width: 1200px; /* Limits width on larger screens */
+    margin: 0 auto; /* Centers the navbar */
+}
+
+/* Brand/Logo */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: rgb(173, 12, 12); /* A nice red color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.navbar-brand:hover {
+    color: #357ABD;
+}
+
+/* Desktop Navigation List */
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Display items in a row */
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 1.5rem; /* Space between nav items */
+}
+
+.nav-link {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative; /* For the active indicator */
+}
+
+.nav-link:hover {
+    color: #4A90E2;
+    background-color: #f0f8ff; /* Light background on hover */
+}
+
+/* Active/Current Page Link */
+.nav-link.current {
+    color: #4A90E2;
+    font-weight: 600;
+}
+.nav-link.current::after { /* Small underline for active page */
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    right: 0.8rem;
+    bottom: -5px; /* Adjust based on padding */
+    height: 3px;
+    background-color: #4A90E2;
+    border-radius: 2px;
+}
+
+/* Call to Action Button */
+.nav-link.btn-cta {
+    background-color: #4A90E2;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px; /* Pill shape */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.nav-link.btn-cta:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dropdown Menu */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle::after { /* Down arrow indicator */
+    content: ' \25BC'; /* Unicode for down arrow */
+    font-size: 0.7em;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position below the parent link */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    border-radius: 5px;
+    overflow: hidden; /* Ensures rounded corners on items */
+    padding: 0.5rem 0;
+    z-index: 10; /* Ensure it's above other content */
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block; /* Show on hover */
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.8rem 1rem;
+    color: #555;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dropdown-item:hover {
+    background-color: #f0f8ff;
+    color: #4A90E2;
+}
+
+/* Mobile Toggler (Hamburger Icon) */
+.navbar-toggler {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Ensure it's above the mobile menu */
+}
+
+.toggler-icon {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #555;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animation for Hamburger to Close Icon */
+.navbar-toggler.active .toggler-icon:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+.navbar-toggler.active .toggler-icon:nth-child(2) {
+    opacity: 0;
+}
+.navbar-toggler.active .toggler-icon:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Mobile Navigation Overlay */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.mobile-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Mobile Navigation List (Slide-in Effect) */
+.navbar-nav.mobile-active {
+    transform: translateX(0); /* Slide in */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+    .navbar {
+        padding: 0.8rem 1rem; /* Slightly smaller padding on mobile */
+    }
+
+    .navbar-toggler {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    .navbar-nav {
+        /* Mobile specific styles for the menu */
+        flex-direction: column; /* Stack items vertically */
+        position: fixed; /* Fixed position for slide-in menu */
+        top: 0;
+        right: 0; /* Starts off-screen to the right */
+        width: 280px; /* Width of the mobile menu */
+        height: 100%;
+        background-color: #fff;
+        padding: 4rem 1.5rem 1.5rem; /* Top padding to clear header */
+        transform: translateX(100%); /* Initially off-screen */
+        transition: transform 0.3s ease-out; /* Smooth slide-in */
+        box-shadow: none; /* Remove desktop shadow */
+        z-index: 1000;
+        overflow-y: auto; /* Enable scrolling for long menus */
+    }
+
+    .nav-item {
+        margin: 0; /* Remove horizontal margins */
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid #eee; /* Separator for mobile links */
+    }
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        padding: 1rem 0; /* Larger clickable area on mobile */
+        display: block; /* Make link fill item width */
+    }
+    .nav-link.current::after {
+        left: 0; /* Adjust underline position for mobile */
+        right: auto;
+        width: 40px; /* Fixed width underline */
+        bottom: 0;
+    }
+
+    /* Dropdown on mobile */
+    .nav-item.dropdown .dropdown-menu {
+        position: static; /* Stack dropdown items normally */
+        display: block; /* Always show when parent is active (controlled by JS) */
+        background-color: #f9f9f9;
+        box-shadow: none;
+        padding: 0.5rem 0 0.5rem 1rem; /* Indent dropdown items */
+        border-radius: 0;
+    }
+    .dropdown-item {
+        padding: 0.6rem 1rem;
+    }
+
+    .dropdown-toggle::after {
+        content: ' \25BC'; /* Ensure arrow is still there */
+        float: right; /* Align arrow to the right */
+        transform: rotate(0deg);
+        transition: transform 0.3s ease;
+    }
+
+    .nav-item.dropdown.open .dropdown-toggle::after {
+        transform: rotate(180deg); /* Rotate arrow when dropdown is open */
+    }
+}
+.main-container{
+
+   display:flex;
+   justify-content: flex-start;
+   padding: 20px;
+   margin:auto;
+   width:100%;
+   max-width:1200px;
+   align-items: center;
+   gap:2rem;
+   flex-direction: column;
+
+}
+  .image-wrapper {
+            /* This wrapper helps control the image size and adds visual flair */
+            width: 90%; /* Take up most of the width on small screens */
+            max-width: 450px; /* Max width for the image */
+            padding: 10px; /* Inner padding for the image */
+            background-color: #fff;
+            border-radius: 16px; /* More rounded corners for the wrapper */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+            display: flex; /* Flex to center image within its wrapper */
+            justify-content: center;
+            align-items: center;
+}
+
+ .text-content {
+            flex-grow: 1; /* Allows text to take up remaining space */
+            padding: 20px;
+            text-align: center; /* Center text on small screens */
+}

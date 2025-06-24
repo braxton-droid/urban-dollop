@@ -1,0 +1,89 @@
+body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Light background for the page */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures footer sticks to bottom */
+        }
+
+        /* Product Card Styling and Hover Effects */
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* Large rounded corners */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
+            overflow: hidden; /* Ensures image corners are rounded */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push button to bottom */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px); /* Lift card slightly */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistent image size */
+            object-fit: contain; /* Ensures entire image is visible, padding if needed */
+            padding: 1rem; /* Padding inside the card for the image */
+            background-color: #f8f8f8; /* Light background for the image area */
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1; /* Allows info to take available space */
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #4c51bf; /* Indigo color for price */
+            margin-bottom: 1rem;
+        }
+
+        .buy-button {
+            display: block; /* Make button full width of its container */
+            width: calc(100% - 3rem); /* Full width minus padding of parent product-info */
+            margin: 0 1.5rem 1.5rem 1.5rem; /* Apply margin to position at bottom and match padding */
+            background-color: #4c51bf; /* Indigo */
+            color: #ffffff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.75rem; /* Match card roundedness */
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .buy-button:hover {
+            background-color: #3f47a1; /* Darker indigo */
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive Grid for Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+            gap: 2rem; /* Space between product cards */
+        }
+
+        /* Specific adjustments for smaller screens if needed */
+        @media (max-width: 640px) {
+            .products-grid {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+            }
+        }

@@ -1,0 +1,78 @@
+body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Light background for the page */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures footer sticks to bottom */
+        }
+
+        /* Main content area styling */
+        .main-content-wrapper {
+            flex-grow: 1; /* Allows main content to take available space */
+            padding: 3rem 1.5rem; /* Overall padding for the main area */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Vertically centers the content block */
+        }
+
+        /* Container for content sections (image and text) */
+        .repair-description-container {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* Rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            padding: 2.5rem; /* Inner padding */
+            max-width: 1000px; /* Max width for content on large screens */
+            width: 100%;
+            display: flex;
+            flex-direction: column; /* Stack on mobile */
+            gap: 2.5rem; /* Space between sections */
+            align-items: center; /* Center items when stacked */
+        }
+
+        /* Image styling and hover effect */
+        .repair-image-wrapper {
+            flex-shrink: 0; /* Prevent image from shrinking */
+            width: 100%; /* Full width on mobile */
+            max-width: 450px; /* Max width for the image */
+            border-radius: 1.5rem; /* Matches container roundedness */
+            overflow: hidden; /* Ensures image corners are rounded */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Image shadow */
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Smooth hover transition */
+        }
+
+        .repair-image-wrapper:hover {
+            transform: scale(1.02); /* Slightly enlarge image on hover */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+        }
+
+        .repair-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers its area */
+            display: block; /* Removes extra space below image */
+        }
+
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 768px) {
+            .repair-description-container {
+                flex-direction: row; /* Side-by-side on desktop */
+                justify-content: space-between; /* Space out content */
+                align-items: flex-start; /* Align sections to the top */
+                padding: 3rem; /* More padding on desktop */
+            }
+
+            .repair-image-wrapper {
+                order: 2; /* Image on the right for desktop */
+                max-width: 400px; /* Adjust max width for desktop */
+                margin-left: 2.5rem; /* Space between text and image */
+            }
+
+            .text-content {
+                order: 1; /* Text on the left for desktop */
+                flex: 2; /* Text content takes more space */
+                padding-right: 2.5rem; /* Space between text and image */
+            }
+        }
